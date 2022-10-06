@@ -1,8 +1,10 @@
 
 resultDiv = document.querySelector(".result");
-inputs = document.querySelectorAll(".inputs");
+inputsDiv = document.querySelector(".inputsDiv");
+resultButton = document.querySelector("#submit")
 
 function calc() {
+    inputs = document.querySelectorAll(".inputs");
     arrOfResults = [];
     inputs.forEach( input => {
         arrOfResults.push(+input.value);
@@ -11,12 +13,15 @@ function calc() {
     min = Math.min(...arrOfResults);
     sum= arrOfResults.reduce((result, number) => {
         return result + number;
-      }, 0);
-    av = sum / 4;
+      });
+    av = sum/inputs.length;
     resultDiv.innerHTML = `Max: ${max} Min:${min} Sum:${sum} Av:${av} `
 }
 function addInput() {
-
+   input = document.createElement("input");
+   input.setAttribute("type", "text");
+   input.className = "inputs";
+   inputsDiv.insertBefore(input,resultButton);
 }
 
-document.addEventListener("click", calc);
+document.addEventListener("keyup", calc);
