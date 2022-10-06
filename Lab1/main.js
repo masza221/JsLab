@@ -23,5 +23,11 @@ function addInput() {
    input.className = "inputs";
    inputsDiv.insertBefore(input,resultButton);
 }
+function removeLastChild() {
+    inputs = document.querySelectorAll(".inputs");
+    lastChild = inputs.length-1
+    inputsDiv.removeChild(inputs[lastChild]);
+    calc(); //refreshing result
+}
 
 document.addEventListener("keyup", calc);
