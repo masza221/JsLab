@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cont{
+    width: 70vw;
+   
+}
+.slides {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    overflow: hidden;
+}
+.slides img {
+    width: 100%;
+}

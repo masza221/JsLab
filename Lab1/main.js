@@ -1,33 +1,15 @@
-
-resultDiv = document.querySelector(".result");
-inputsDiv = document.querySelector(".inputsDiv");
-resultButton = document.querySelector("#submit")
-
-function calc() {
-    inputs = document.querySelectorAll(".inputs");
-    arrOfResults = [];
-    inputs.forEach( input => {
-        arrOfResults.push(+input.value);
-    })
-    max= Math.max(...arrOfResults);
-    min = Math.min(...arrOfResults);
-    sum= arrOfResults.reduce((result, number) => {
-        return result + number;
-      });
-    av = sum/inputs.length;
-    resultDiv.innerHTML = `Max: ${max} Min:${min} Sum:${sum} Av:${av} `
+function fizzbuzz(i){
+    result = ''
+    while (i%3){
+        result += "fizz"
+        break;
+    }
+    while (i%5){
+        result += "buzz"
+        break;
+    }
+    return result;
 }
-function addInput() {
-   input = document.createElement("input");
-   input.setAttribute("type", "text");
-   input.className = "inputs";
-   inputsDiv.insertBefore(input,resultButton);
+for(i = 0; i<5; i++){
+    console.log(fizzbuzz(i));
 }
-function removeLastChild() {
-    inputs = document.querySelectorAll(".inputs");
-    lastChild = inputs.length-1
-    inputsDiv.removeChild(inputs[lastChild]);
-    calc(); //refreshing result
-}
-
-document.addEventListener("keyup", calc);
