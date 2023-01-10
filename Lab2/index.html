@@ -8,14 +8,74 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="cont">
-      <div class="slider">
-        <div class="slides">
-          <img class="slide__img" src="/img/photo1.jpg" alt="kable1" />
-          <img class="slide__img" src="/img/photo2.jpg" alt="kable2" />
-          <img class="slide__img" src="/img/photo3.jpg" alt="kable3" />
-          <img class="slide__img" src="/img/photo4.jpg" alt="kable4" />
+    <div class="carousel">
+      <div class="carousel-track-con">
+        <div class="carousel-track">
+          <div class="carousel-slide first current-slide">
+            <img
+              rel="preload"
+              as="image"
+              class="carousel-img"
+              src="./img/photo1.jpg"
+              alt="slide1"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              rel="preload"
+              as="image"
+              class="carousel-img"
+              src="./img/photo2.jpg"
+              alt="slide2"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              rel="preload"
+              as="image"
+              class="carousel-img"
+              src="./img/photo3.jpg"
+              alt="slide3"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              rel="preload"
+              as="image"
+              class="carousel-img"
+              src="./img/photo4.jpg"
+              alt="slide4"
+            />
+          </div>
         </div>
+      </div>
+      <button class="carousel-button carousel-button-right">
+        >
+      </button>
+      <button class="carousel-button hidden carousel-button-left">
+        <
+      </button>
+      <div class="carousel-nav">
+        <button
+          name="slide1"
+          aria-label="left"
+          class="carousel-indicator first current-slide"
+        ></button>
+        <button
+          name="slide2"
+          aria-label="center-left"
+          class="carousel-indicator"
+        ></button>
+        <button
+          name="slide3"
+          aria-label="center-right"
+          class="carousel-indicator"
+        ></button>
+        <button
+          name="slide4"
+          aria-label="right"
+          class="carousel-indicator"
+        ></button>
       </div>
     </div>
     <script src="main.js"></script>

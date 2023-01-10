@@ -1,5 +1,16 @@
 recording = false;
-const track = [];
+let track = {
+   1: [],
+   2: [],
+   3: [],
+   4: []
+};
+
+const linePicker = document.getsoundementById("line");
+let lineNumber = linePicker.value;
+linePicker.addEventListener('change', () => {
+    lineNumber = linePicker.value;
+});
 
 
 document.addEventListener("keypress", (event) => {
@@ -46,20 +57,25 @@ function whichSound(key) {
     }
 }
 function playSound(sound) {
-    const audioTag = document.querySelector("#" + sound)
-    audioTag.currentTime = 0;
+    const audioTag = document.getsoundementById(sound)
+        
     audioTag.play();
 }
 
-function startRecord() {
+
+
+function startRecord(button) {
+
     if (recording === true) {
-        return;
+        recording = false;
+        button.innerHTML = 'Record'
     }
     else {
         recording = true;
-        track.push({ key: "", time: Date.now() })
+        button.innerHTML = 'Stop'
+        track[lineNumber].push({ key: "", time: Date.now() })
     }
-
+    console.log(recording)
 }
 function recordKey(event) {
     while (recording === true) {
@@ -67,28 +83,32 @@ function recordKey(event) {
             key: event.key,
             time: Date.now()
         }
-        track.push(sound)
+        track[lineNumber].push(sound)
         break;
     }
+}
 
-}
-function stopRecord() {
-    recording = false;
-}
 function play() {
+    for(i = 1; i <= Object.keys(track).length; i++ ){
+        playLine(i)
+    }
+}
+function playLine(line = lineNumber){
     let lastTime;
-    track.forEach((el) => {
 
-        if (el === track[0]) {
-            lastTime = el.time;
+    track[line].forEach((sound) => {
+
+        if (sound === track[line][0]) {
+            lastTime = sound.time;
         }
-
-        if (el.key) {
+        
+        if (sound.key) {
             setTimeout(() => {
-                sound = whichSound(el.key);
+                sound = whichSound(sound.key);
                 playSound(sound);
-            }, el.time - lastTime);
+            }, sound.time - lastTime);
         }
         
     })
+
 }

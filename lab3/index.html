@@ -8,20 +8,26 @@
 </head>
 <body>
     <div class="panel">
-        <button onclick="startRecord()">Record</button>
-        <button onclick="stopRecord()">Stop</button>
-        <button onclick="play()">Play</button>
+        <button onclick="startRecord(this)">Record</button>
+        <button onclick="play()">Play All</button>
+        <button onclick="playLine()">Play Line</button>
+        <select name="line" id="line">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
     </div>
     <div class="sounds">
-        <audio src="/sounds/boom.wav" id="boom"></audio>
-        <audio src="/sounds/clap.wav" id="clap"></audio>
-        <audio src="/sounds/hihat.wav" id="hihat" ></audio>
-        <audio src="/sounds/kick.wav" id="kick"></audio>
-        <audio src="/sounds/openhat.wav" id="openhat"></audio>
-        <audio src="/sounds/ride.wav" id="ride"></audio>
-        <audio src="/sounds/snare.wav" id="snare"></audio>
-        <audio src="/sounds/tink.wav" id="tink"></audio>
-        <audio src="/sounds/tom.wav" id="tom"></audio>
+        <audio src="./sounds/boom.wav" id="boom"></audio>
+        <audio src="./sounds/clap.wav" id="clap"></audio>
+        <audio src="./sounds/hihat.wav" id="hihat" ></audio>
+        <audio src="./sounds/kick.wav" id="kick"></audio>
+        <audio src="./sounds/openhat.wav" id="openhat"></audio>
+        <audio src="./sounds/ride.wav" id="ride"></audio>
+        <audio src="./sounds/snare.wav" id="snare"></audio>
+        <audio src="./sounds/tink.wav" id="tink"></audio>
+        <audio src="./sounds/tom.wav" id="tom"></audio>
     </div>
     <script src="main.js" defer></script>
 </body>

@@ -1,24 +1,82 @@
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
-body{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.cont{
-    width: 70vw;
-   
-}
-.slides {
-    width: 100%;
-    height: fit-content;
-    display: flex;
+.carousel {
+    position: relative;
+    width: calc(40vw + 150px);
+    min-width: 300px;
+    min-height: 250px;
+    height: 40vw;
+    margin: 0 auto;
     overflow: hidden;
-}
-.slides img {
+  }
+  .carousel-img {
+    width: calc(40vw + 150px);
+    min-width: 300px;
+    height: 100%;
+    object-fit: cover;
+  }
+  .carousel-track-con {
+    background-color: lightblue;
+    position: relative;
+  }
+  .carousel-track {
+    padding: 0;
+    margin: 0;
+    transition: transform 450ms ease;
+  }
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40vw;
+    min-height: 250px;
+  }
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    height: calc(30px + 1vw);
+    width: calc(30px + 1vw);
+  }
+  .carousel-button img {
+    height: calc(30px + 1vw);
+    width: calc(30px + 1vw);
+  }
+  .carousel-nav {
+    position: absolute;
+    bottom: 1vw;
     width: 100%;
-}
+    display: flex;
+    justify-content: center;
+  }
+  .carousel-indicator {
+    width: 2vw;
+    min-width: 20px;
+    min-height: 20px;
+    height: 2vw;
+    border-radius: 50%;
+    border: 0px;
+    margin-right: 3vw;
+    cursor: pointer;
+    background-color: transparent;
+    border: calc(0.2vw + 2px) solid rgb(255, 255, 255);
+    transition: border 450ms ease;
+  }
+  .carousel-indicator:last-child {
+    margin-right: 0;
+  }
+  .carousel-indicator.current-slide {
+    border-color: yellowgreen;
+  }
+  
+  .carousel-button img {
+    width: calc(30px + 1vw);
+  }
+  .carousel-button-right {
+    right: 1vw;
+    transform: translateY(-50%);
+  }
+  .carousel-button-left {
+    left: 1vw;
+    transform: translateY(-50%) rotate(180deg);
+  }
