@@ -30,6 +30,8 @@
     min-height: 250px;
   }
   .carousel-button {
+    font-size: 1.5rem;
+    color: greenyellow;
     position: absolute;
     top: 50%;
     cursor: pointer;

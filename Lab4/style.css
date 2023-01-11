@@ -7,13 +7,17 @@ input,
 button {
   font-size: 1.2rem;
 }
-
+h1{
+  text-align: center;
+}
 .options{
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 1.5rem;
   margin: 1rem 0;
+  gap: 20px;
+  margin: 0 20px 0 20px;
 }
 .options button{
   padding: 1rem;
@@ -248,5 +252,34 @@ button {
 .popup-header{
   width: fit-content;
 }
-
-
+@media screen and (max-width: 768px) {
+  .note {
+    width: 97%;
+    height: 100%;
+  }
+  .note-header {
+    margin-bottom: 0;
+  }
+  .note-body {
+    margin-bottom: 0;
+  }
+  .note-remove {
+    top: -100%;
+    right: 0;
+    transform: translateX(0);
+  }
+  .pin {
+    bottom: 0;
+    right: 0;
+  }
+  .options{
+    flex-direction: column;
+  }
+  .notes-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+  

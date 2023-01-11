@@ -6,7 +6,7 @@ let track = {
    4: []
 };
 
-const linePicker = document.getsoundementById("line");
+const linePicker = document.getElementById("line");
 let lineNumber = linePicker.value;
 linePicker.addEventListener('change', () => {
     lineNumber = linePicker.value;
@@ -57,8 +57,8 @@ function whichSound(key) {
     }
 }
 function playSound(sound) {
-    const audioTag = document.getsoundementById(sound)
-        
+    const audioTag = document.getElementById(sound)
+    audioTag.currentTime = 0;
     audioTag.play();
 }
 
@@ -75,7 +75,6 @@ function startRecord(button) {
         button.innerHTML = 'Stop'
         track[lineNumber].push({ key: "", time: Date.now() })
     }
-    console.log(recording)
 }
 function recordKey(event) {
     while (recording === true) {
@@ -86,6 +85,7 @@ function recordKey(event) {
         track[lineNumber].push(sound)
         break;
     }
+
 }
 
 function play() {

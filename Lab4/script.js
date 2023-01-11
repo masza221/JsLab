@@ -21,7 +21,7 @@ class Note {
         <div class="note-body">
              <p>${this.content}</p>
         </div>  
-       ${this.pin === true ? `<div onclick="pin(this)" class="pin"></div>` : ``}
+       ${this.pin === true ? `<div class="pin"></div>` : ``}
        <button onclick="createPopup(this)" class="btn">Edit</button>
     </div>
     `;

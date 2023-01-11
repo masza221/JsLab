@@ -7,6 +7,8 @@ const carousel = document.querySelector(".carousel"),
   dots = Array.from(dotsNav.children),
   firstSlide = track.querySelector(".first"),
   firstNav = dotsNav.querySelector(".first");
+  lastNav = dotsNav.querySelector(".last");
+  lastSlide = track.querySelector(".last");
 
 let slideSize = slides[0].clientWidth;
 
@@ -54,10 +56,17 @@ const hideShowArrows = (slides, prevBtn, nextBtn, targetIndex) => {
 
 prevBtn.addEventListener("click", (e) => {
   const currentSlide = track.querySelector(".current-slide");
-  const prevSlide = currentSlide.previousElementSibling;
-
+  let prevSlide = currentSlide.previousElementSibling;
+  if(currentSlide.previousElementSibling == null) {
+    prevSlide = lastSlide;
+  }
   const currentDot = dotsNav.querySelector(".current-slide");
-  const prevDot = currentDot.previousElementSibling;
+  let prevDot = currentDot.previousElementSibling;
+  if(currentDot.previousElementSibling == null) {
+    {
+      prevDot = lastNav;
+    }
+  }
   const prevIndex = slides.findIndex((slide) => slide === prevSlide);
 
   moveToSlide(track, currentSlide, prevSlide);
@@ -67,11 +76,21 @@ prevBtn.addEventListener("click", (e) => {
 
 nextBtn.addEventListener("click", (e) => {
   const currentSlide = track.querySelector(".current-slide");
-  const nextSlide = currentSlide.nextElementSibling;
+  
+  let nextSlide = currentSlide.nextElementSibling;
+  if(currentSlide.nextElementSibling == null) {
+    nextSlide = firstSlide;
+  };
+
 
   const currentDot = dotsNav.querySelector(".current-slide");
-  const nextDot = currentDot.nextElementSibling;
+  let nextDot = currentDot.nextElementSibling;
+  if(currentDot.nextElementSibling == null) {
+    nextDot = firstNav;
+  };
+
   const nextIndex = slides.findIndex((slide) => slide === nextSlide);
+
 
   moveToSlide(track, currentSlide, nextSlide);
   updateDots(currentDot, nextDot);
@@ -116,7 +135,7 @@ const repeater = () => {
 };
 repeater();
 
-carousel.addEventListener("mouseover", () => {
+carousel.addEventListener("mousemove", () => {
   clearInterval(playSlider);
 });
 
