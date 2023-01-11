@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.find{
+    display: flex;
+}
+.cities{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    margin: 10px 20px 20px 20px;
+    gap: 5px;
+}
+.cities li {
+    width: 30%;
+    border-radius: 1rem;
+    list-style: none;
+    padding: 10px;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.cities li:hover{
+    background-color: #eee;
+}
+
+
+input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px;
+}
+.weather {
+    position: relative;
+    min-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.weather img{
+    width: 100px;
+    height: 100px;
+}
+.weather-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 50px;
+}
+.hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .hamburger div {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: red;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+  }
+  .hamburger div::before,
+  .hamburger div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: red;
+  }
+  .hamburger > div::after {
+    top: 10px;
+  }
+  .hamburger div {
+    transform: rotate(135deg);
+  }
+  .hamburger div:before,
+  .hamburger div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  .hamburger:hover div {
+    transform: rotate(225deg);
+  }
